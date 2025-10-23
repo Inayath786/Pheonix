@@ -43,7 +43,7 @@ function Testimonials() {
           alt={reviews[currentIndex].name}
           style={{
             width: "200px",
-            height: "70px",
+            height: "150px",
             borderRadius: "10%",
             objectFit: "cover",
             border: "4px solid #e63946",

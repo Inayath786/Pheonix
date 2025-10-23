@@ -1,6 +1,11 @@
 import React from "react";
 
 export default function PricingCard({ plan }) {
+  // Handle undefined plan
+  if (!plan) return null; // or a fallback UI
+
+  const { name, price, features = [] } = plan; // default empty array for features
+
   const cardStyle = {
     background: "#111",
     padding: "30px 25px",
@@ -36,14 +41,20 @@ export default function PricingCard({ plan }) {
 
   return (
     <div style={cardStyle}>
-      <h3 style={{ fontSize: "1.6rem", color: "#e63946" }}>{plan.name}</h3>
-      <p style={{ fontSize: "1.2rem", color: "#fff" }}>{plan.price}</p>
-      <ul style={{ textAlign: "left", color: "#ccc" }}>
-        {plan.features.map((f, i) => (
-          <li key={i}>{f}</li>
-        ))}
-      </ul>
-      <button style={btnStyle} onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} >
+      <h3 style={{ fontSize: "1.6rem", color: "#e63946" }}>{name}</h3>
+      <p style={{ fontSize: "1.2rem", color: "#fff" }}>₹{price} / month</p>
+      {features.length > 0 && (
+        <ul style={{ textAlign: "left", color: "#ccc" }}>
+          {features.map((f, i) => (
+            <li key={i}>✅ {f}</li>
+          ))}
+        </ul>
+      )}
+      <button
+        style={btnStyle}
+        onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
+        onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+      >
         Join Now
       </button>
     </div>

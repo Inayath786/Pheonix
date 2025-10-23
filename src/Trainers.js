@@ -6,19 +6,19 @@ const trainers = [
     name: "Alex Johnson",
     role: "Strength Coach",
     bio: "Expert in weightlifting and muscle building with 10+ years of experience.",
-    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
+    image: "/trainer1.jpg",
   },
   {
     name: "Sarah Lee",
     role: "Yoga Instructor",
     bio: "Passionate about flexibility and mindfulness, guiding clients to a balanced life.",
-    image: "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642",
+    image: "/trainer2.jpg",
   },
   {
     name: "Mike Thompson",
     role: "HIIT Trainer",
     bio: "Specializes in high-intensity interval training to burn fat fast.",
-    image: "https://images.unsplash.com/photo-1594737625785-30c64d1e2d63",
+    image: "/trainer3.jpg",
   },
 ];
 
