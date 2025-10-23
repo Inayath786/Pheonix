@@ -16,27 +16,30 @@ export default function Header() {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: isMobile ? "10px 20px" : "15px 40px",
+      padding: isMobile ? "10px 15px" : "15px 40px", // reduced side padding on mobile
       zIndex: 1000,
       boxSizing: "border-box",
       boxShadow: "0 2px 10px rgba(0,0,0,0.4)",
+      overflow: "hidden", // prevents any accidental horizontal scroll
     },
     logo: {
       fontSize: isMobile ? "18px" : "22px",
       fontWeight: "700",
       cursor: "pointer",
+      flexShrink: 0, // prevents logo from shrinking
     },
     btn: {
       background: "linear-gradient(90deg, #ff6600, #ff2e63)",
       color: "white",
       border: "none",
-      padding: isMobile ? "10px 16px" : "12px 25px",
+      padding: isMobile ? "8px 12px" : "12px 25px", // slightly smaller on mobile
       borderRadius: "8px",
       cursor: "pointer",
       fontWeight: "600",
-      fontSize: isMobile ? "14px" : "16px",
+      fontSize: isMobile ? "13px" : "16px",
       transition: "all 0.3s ease",
       boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+      flexShrink: 0, // prevents button from shrinking
     },
   };
 

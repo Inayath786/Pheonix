@@ -1,8 +1,8 @@
 import React from "react";
 
-function Pricing() {
+export default function Pricing() {
   const sectionStyle = {
-    padding: "60px 8%",
+    padding: "60px 5%", // reduced side padding for mobile fit
     backgroundColor: "#111",
     color: "#fff",
     textAlign: "center",
@@ -17,10 +17,14 @@ function Pricing() {
 
   const card = {
     backgroundColor: "#1a1a1a",
-    padding: "30px 20px",
+    padding: "25px 20px",
     borderRadius: "12px",
     transition: "all 0.3s ease",
     border: "1px solid #222",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    minHeight: "280px",
   };
 
   const cardHover = {
@@ -30,15 +34,16 @@ function Pricing() {
   };
 
   const btn = {
-    marginTop: "20px",
+    marginTop: "15px",
     backgroundColor: "#e63946",
     color: "#fff",
     border: "none",
-    padding: "10px 20px",
+    padding: "10px 18px",
     borderRadius: "6px",
     cursor: "pointer",
     fontWeight: "bold",
-    transition: "background 0.3s ease",
+    transition: "background 0.3s ease, transform 0.2s ease",
+    alignSelf: "center",
   };
 
   const plans = [
@@ -68,61 +73,60 @@ function Pricing() {
     <>
       <style>
         {`
-        @media (max-width: 1024px) {
-          .price-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
+        .price-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 25px;
         }
-        @media (max-width: 768px) {
-          .price-grid {
-            grid-template-columns: 1fr;
-          }
+        @media (max-width: 1200px) {
+          .price-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 992px) {
+          .price-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+          .price-grid { grid-template-columns: 1fr; gap: 20px; }
+        }
+
+        .price-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 0 20px rgba(230,57,70,0.3);
+          border-color: #e63946;
+        }
+
+        .price-btn:hover {
+          background-color: #ff4d5a;
+          transform: scale(1.05);
         }
         `}
       </style>
 
       <section id="pricing" style={sectionStyle}>
-        <h2 style={{ fontSize: "2.5rem", marginBottom: "20px" }}>Membership Plans</h2>
-        <p style={{ color: "#aaa", marginBottom: "40px" }}>
+        <h2 style={{ fontSize: "2.5rem", marginBottom: "15px" }}>Membership Plans</h2>
+        <p style={{ color: "#aaa", marginBottom: "35px" }}>
           Choose the perfect plan that fits your fitness goals.
         </p>
 
-        <div className="price-grid" style={grid}>
+        <div className="price-grid">
           {plans.map((plan, index) => (
-            <div
-              key={index}
-              style={card}
-              onMouseEnter={(e) => {
-                Object.assign(e.currentTarget.style, cardHover);
-              }}
-              onMouseLeave={(e) => {
-                Object.assign(e.currentTarget.style, card);
-              }}
-            >
-              <h3 style={{ color: "#e63946", fontSize: "1.6rem" }}>{plan.name}</h3>
+            <div key={index} className="price-card" style={card}>
+              <h3 style={{ color: "#e63946", fontSize: "1.5rem" }}>{plan.name}</h3>
               <p style={{ fontSize: "1.2rem", margin: "10px 0" }}>{plan.price}</p>
               <ul style={{ listStyle: "none", padding: 0, color: "#ccc", lineHeight: "1.8" }}>
                 {plan.features.map((feature, i) => (
                   <li key={i}>✅ {feature}</li>
                 ))}
               </ul>
-              <button
-                style={btn}
-                onMouseEnter={(e) => (e.target.style.backgroundColor = "#ff4d5a")}
-                onMouseLeave={(e) => (e.target.style.backgroundColor = "#e63946")}
-              >
-                Join Now
-              </button>
+              <button className="price-btn" style={btn}>Join Now</button>
             </div>
           ))}
         </div>
-        
       </section>
 
       <section
         id="location"
         style={{
-          padding: "50px 8%",
+          padding: "50px 5%",
           textAlign: "center",
           background: "#f9f9f9",
         }}
@@ -150,5 +154,3 @@ function Pricing() {
     </>
   );
 }
-
-export default Pricing;
