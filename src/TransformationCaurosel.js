@@ -6,27 +6,14 @@ export default function TransformationCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const members = [
-    {
-      before: "https://images.unsplash.com/photo-1579758629930-0360a3b17fae?auto=format&fit=crop&w=400&q=80",
-      after: "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642?auto=format&fit=crop&w=400&q=80",
-      name: "John",
-    },
-    {
-      before: "https://images.unsplash.com/photo-1594737625785-30c64d1e2d63?auto=format&fit=crop&w=400&q=80",
-      after: "https://images.unsplash.com/photo-1611965938960-d1fbe0287a49?auto=format&fit=crop&w=400&q=80",
-      name: "Sarah",
-    },
-    {
-      before: "https://images.unsplash.com/photo-1599058917213-1964085e16b6?auto=format&fit=crop&w=400&q=80",
-      after: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=400&q=80",
-      name: "Mike",
-    },
+    { before: "https://images.unsplash.com/photo-1579758629930-0360a3b17fae", after: "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642", name: "John" },
+    { before: "https://images.unsplash.com/photo-1594737625785-30c64d1e2d63", after: "https://images.unsplash.com/photo-1611965938960-d1fbe0287a49", name: "Sarah" },
+    { before: "https://images.unsplash.com/photo-1599058917213-1964085e16b6", after: "https://images.unsplash.com/photo-1607746882042-944635dfe10e", name: "Mike" },
   ];
 
   const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % members.length);
   const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + members.length) % members.length);
 
-  // ===== Styles =====
   const sectionStyle = {
     display: "flex",
     flexDirection: isMobile ? "column" : "row",
@@ -37,16 +24,7 @@ export default function TransformationCarousel() {
     color: "#fff",
     gap: isMobile ? "30px" : "60px",
     textAlign: "center",
-    overflowX: "hidden", // prevent horizontal scroll
-  };
-
-  const imagesContainer = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexWrap: isMobile ? "wrap" : "nowrap",
-    gap: isMobile ? "15px" : "20px",
-    width: isMobile ? "100%" : "auto",
+    overflowX: "hidden",
   };
 
   const imageStyle = {
@@ -55,84 +33,40 @@ export default function TransformationCarousel() {
     height: isMobile ? "auto" : "320px",
     objectFit: "cover",
     borderRadius: "12px",
-    boxShadow: "0 6px 20px rgba(0,0,0,0.6)",
+    boxShadow: "0 6px 20px rgba(0,0,0,0.4)",
     transition: "transform 0.3s ease",
   };
 
-  const textContainer = {
-    maxWidth: isMobile ? "100%" : "500px",
-    textAlign: isMobile ? "center" : "left",
-  };
-
-  const btnContainer = {
-    marginTop: "20px",
-    display: "flex",
-    justifyContent: isMobile ? "center" : "flex-start",
-    gap: "20px",
-    flexWrap: "wrap",
-  };
-
   const btnStyle = {
+    display: "inline-flex",
+    justifyContent: "center",
+    alignItems: "center",
     background: "#ff4500",
-    border: "none",
-    padding: "10px 20px",
     color: "#fff",
+    border: "none",
     borderRadius: "8px",
-    cursor: "pointer",
+    padding: "10px 18px",
+    minWidth: "100px",
     fontWeight: "600",
-    transition: "background 0.3s ease, transform 0.2s ease",
+    cursor: "pointer",
+    textAlign: "center",
     whiteSpace: "nowrap",
-  };
-
-  const handleHover = (e, scale) => {
-    e.target.style.transform = `scale(${scale})`;
+    transition: "all 0.3s ease",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
   };
 
   return (
-    <section id="transformations" style={sectionStyle}>
-      {/* Images */}
-      <div style={imagesContainer}>
-        <img
-          src={members[currentIndex].before}
-          alt={`${members[currentIndex].name} before`}
-          style={imageStyle}
-          onMouseEnter={(e) => handleHover(e, 1.05)}
-          onMouseLeave={(e) => handleHover(e, 1)}
-        />
-        <img
-          src={members[currentIndex].after}
-          alt={`${members[currentIndex].name} after`}
-          style={imageStyle}
-          onMouseEnter={(e) => handleHover(e, 1.05)}
-          onMouseLeave={(e) => handleHover(e, 1)}
-        />
-      </div>
+    <section style={sectionStyle}>
+      <img src={members[currentIndex].before} style={imageStyle} alt="Before" />
+      <img src={members[currentIndex].after} style={imageStyle} alt="After" />
 
-      {/* Text + Buttons */}
-      <div style={textContainer}>
-        <h2 style={{ marginBottom: "15px", color: "#ff4500" }}>Our Fitness Journey</h2>
-        <p style={{ fontSize: isMobile ? "15px" : "17px", lineHeight: "1.7" }}>
-          At <b>Phoenix Fitness</b>, we empower people to transform their lives. From struggling with fitness to achieving their dream bodies, our members have seen incredible results with our expert trainers, personalized programs, and supportive community.
-        </p>
-
-        <div style={btnContainer}>
-          <button
-            style={btnStyle}
-            onClick={prevSlide}
-            onMouseEnter={(e) => (e.target.style.background = "#e13c00")}
-            onMouseLeave={(e) => (e.target.style.background = "#ff4500")}
-          >
-            ◀ Previous
-          </button>
-          <button
-            style={btnStyle}
-            onClick={nextSlide}
-            onMouseEnter={(e) => (e.target.style.background = "#e13c00")}
-            onMouseLeave={(e) => (e.target.style.background = "#ff4500")}
-          >
-            Next ▶
-          </button>
-        </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: "15px", marginTop: isMobile ? "20px" : "0" }}>
+        <button style={btnStyle} onClick={prevSlide} onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} >
+          ◀ Previous
+        </button>
+        <button style={btnStyle} onClick={nextSlide} onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} >
+          Next ▶
+        </button>
       </div>
     </section>
   );

@@ -19,61 +19,56 @@ export default function Programs() {
     border: "1px solid rgba(255,255,255,0.05)",
     borderRadius: "15px",
     padding: "30px 20px",
-    transition: "transform 0.3s ease, box-shadow 0.3s ease",
     boxShadow: "0 0 15px rgba(0,0,0,0.3)",
-    boxSizing: "border-box",
     minWidth: "250px",
     flexShrink: 0,
+    transition: "transform 0.3s ease",
   };
 
-  const iconStyle = {
-    fontSize: "2.5rem",
-    marginBottom: "15px",
-    color: "#e63946",
-  };
+  const iconStyle = { fontSize: "2.5rem", marginBottom: "15px", color: "#e63946" };
 
   const btnStyle = {
+    display: "inline-flex",
+    justifyContent: "center",
+    alignItems: "center",
     background: "#ff4500",
-    border: "none",
     color: "#fff",
-    padding: "10px 20px",
+    border: "none",
     borderRadius: "8px",
+    padding: "10px 18px",
+    minWidth: "50px",
     fontWeight: "600",
     cursor: "pointer",
-    margin: "0 5px",
+    textAlign: "center",
+    whiteSpace: "nowrap",
     transition: "all 0.3s ease",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
   };
 
   const programs = [
-    { name: "Strength Training", desc: "Build muscle, gain endurance, and push your limits with personalized strength routines.", icon: "💪" },
-    { name: "Cardio Burn", desc: "Enhance your stamina, heart health, and energy with high-intensity cardio sessions.", icon: "🏃‍♂️" },
-    { name: "Yoga & Flexibility", desc: "Relax, stretch, and improve your posture and flexibility through calming yoga.", icon: "🧘‍♀️" },
-    { name: "HIIT Power", desc: "Short, intense workouts designed to torch fat and boost metabolism.", icon: "🔥" },
-    { name: "CrossFit Challenge", desc: "Dynamic workouts combining weightlifting, cardio, and functional movements.", icon: "🏋️‍♀️" },
-    { name: "Zumba & Dance Fitness", desc: "Fun-filled dance sessions that burn calories and keep you moving with rhythm.", icon: "🎶" },
+    { name: "Strength Training", desc: "Build muscle, gain endurance.", icon: "💪" },
+    { name: "Cardio Burn", desc: "High-intensity cardio sessions.", icon: "🏃‍♂️" },
+    { name: "Yoga & Flexibility", desc: "Improve posture and flexibility.", icon: "🧘‍♀️" },
+    { name: "HIIT Power", desc: "Short intense workouts.", icon: "🔥" },
+    { name: "CrossFit Challenge", desc: "Weightlifting & functional workouts.", icon: "🏋️‍♀️" },
+    { name: "Zumba & Dance", desc: "Fun dance sessions.", icon: "🎶" },
   ];
 
-  // Move carousel
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % programs.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + programs.length) % programs.length);
-  };
+  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % programs.length);
+  const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + programs.length) % programs.length);
 
   useEffect(() => {
     if (isMobile && containerRef.current) {
-      const cardWidth = containerRef.current.firstChild.getBoundingClientRect().width + 15; // include gap
+      const cardWidth = containerRef.current.firstChild.getBoundingClientRect().width + 15;
       containerRef.current.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
     }
   }, [currentIndex, isMobile]);
 
   return (
-    <section id="programs" style={sectionStyle}>
+    <section style={sectionStyle}>
       <h2 style={{ fontSize: "2.4rem", letterSpacing: "1px" }}>Our Programs</h2>
-      <p style={{ color: "#bbb", marginTop: "10px", maxWidth: "700px", margin: "10px auto" }}>
-        Explore fitness programs tailored for every goal — from building strength to finding balance.
+      <p style={{ color: "#bbb", maxWidth: "700px", margin: "10px auto" }}>
+        Explore fitness programs tailored for every goal.
       </p>
 
       {/* Desktop Grid */}
@@ -82,8 +77,8 @@ export default function Programs() {
           {programs.map((p, i) => (
             <div key={i} style={cardStyle}>
               <div style={iconStyle}>{p.icon}</div>
-              <h3 style={{ color: "#e63946", marginBottom: "10px" }}>{p.name}</h3>
-              <p style={{ color: "#ccc", fontSize: "0.95rem", lineHeight: "1.6" }}>{p.desc}</p>
+              <h3 style={{ color: "#e63946" }}>{p.name}</h3>
+              <p style={{ color: "#ccc" }}>{p.desc}</p>
             </div>
           ))}
         </div>
@@ -92,30 +87,21 @@ export default function Programs() {
       {/* Mobile Carousel */}
       {isMobile && (
         <div style={{ position: "relative", marginTop: "30px" }}>
-          <div
-            ref={containerRef}
-            style={{
-              display: "flex",
-              transition: "transform 0.4s ease",
-              gap: "15px",
-              padding: "0 10px",
-            }}
-          >
+          <div ref={containerRef} style={{ display: "flex", gap: "15px", transition: "transform 0.4s ease", padding: "0 10px" }}>
             {programs.map((p, i) => (
               <div key={i} style={cardStyle}>
                 <div style={iconStyle}>{p.icon}</div>
-                <h3 style={{ color: "#e63946", marginBottom: "10px" }}>{p.name}</h3>
-                <p style={{ color: "#ccc", fontSize: "0.95rem", lineHeight: "1.6" }}>{p.desc}</p>
+                <h3 style={{ color: "#e63946" }}>{p.name}</h3>
+                <p style={{ color: "#ccc" }}>{p.desc}</p>
               </div>
             ))}
           </div>
 
-          {/* Buttons */}
-          <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
-            <button style={btnStyle} onClick={prevSlide}>
+          <div style={{ display: "flex", justifyContent: "center", marginTop: "20px", gap: "10px" }}>
+            <button style={btnStyle} onClick={prevSlide} onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} >
               ◀
             </button>
-            <button style={btnStyle} onClick={nextSlide}>
+            <button style={btnStyle} onClick={nextSlide} onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.1)")} onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")} >
               ▶
             </button>
           </div>

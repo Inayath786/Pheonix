@@ -1,88 +1,118 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState } from "react";
+import useResponsive from "./useResponsive";
 
-function Trainers() {
+const trainers = [
+  {
+    name: "Alex Johnson",
+    role: "Strength Coach",
+    bio: "Expert in weightlifting and muscle building with 10+ years of experience.",
+    image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e",
+  },
+  {
+    name: "Sarah Lee",
+    role: "Yoga Instructor",
+    bio: "Passionate about flexibility and mindfulness, guiding clients to a balanced life.",
+    image: "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642",
+  },
+  {
+    name: "Mike Thompson",
+    role: "HIIT Trainer",
+    bio: "Specializes in high-intensity interval training to burn fat fast.",
+    image: "https://images.unsplash.com/photo-1594737625785-30c64d1e2d63",
+  },
+];
+
+export default function TrainerCarousel() {
+  const { isMobile } = useResponsive();
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextTrainer = () => setCurrentIndex((prev) => (prev + 1) % trainers.length);
+  const prevTrainer = () =>
+    setCurrentIndex((prev) => (prev - 1 + trainers.length) % trainers.length);
+
   const sectionStyle = {
-    padding: "60px 8%",
-    backgroundColor: "#000",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    padding: isMobile ? "60px 5%" : "100px 10%",
+    background: "#111",
     color: "#fff",
     textAlign: "center",
-    overflow: "hidden",
+    gap: "30px",
   };
 
-  const card = {
-    backgroundColor: "#111",
+  const cardStyle = {
+    display: "flex",
+    flexDirection: isMobile ? "column" : "row",
+    alignItems: "center",
+    background: "linear-gradient(145deg, #1a1a1a, #222)",
     borderRadius: "15px",
-    padding: "20px",
-    textAlign: "center",
-    boxShadow: "0 0 15px rgba(255,255,255,0.1)",
-    transition: "transform 0.3s ease",
-    maxWidth: "280px", // limit card width
-    margin: "0 auto",  // center in slide
-  };
-
-  const imgStyle = {
+    padding: "25px",
+    boxShadow: "0 6px 20px rgba(0,0,0,0.4)",
+    maxWidth: "800px",
     width: "100%",
-    borderRadius: "10px",
-    height: "250px",
+    gap: "20px",
+    transition: "transform 0.5s ease",
+  };
+
+  const imageStyle = {
+    width: isMobile ? "100%" : "250px",
+    height: isMobile ? "auto" : "250px",
+    borderRadius: "15px",
     objectFit: "cover",
-    marginBottom: "15px",
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    centerMode: false, // prevents weird scaling
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 1, centerMode: false, arrows: false },
-      },
-    ],
+  const btnStyle = {
+    display: "inline-flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "#ff4500",
+    color: "#fff",
+    border: "none",
+    borderRadius: "8px",
+    padding: "12px 25px",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
   };
-
-  const trainers = [
-    { img: "/trainer2.jpg", name: "John Carter" },
-    { img: "/trainer1.jpg", name: "Sarah Kim" },
-    { img: "/trainer3.jpg", name: "Mike Ross" },
-    { img: "https://images.unsplash.com/photo-1594737625785-cdf97e3503c9", name: "Emma Watson"},
-    { img: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1", name: "Liam Scott" },
-  ];
 
   return (
-    <section id="trainers" style={sectionStyle}>
-      <h2 style={{ fontSize: "2.5rem", marginBottom: "40px", fontWeight: "bold" }}>
-        Meet Our Trainers
-      </h2>
+    <section style={sectionStyle}>
+      <h2 style={{ fontSize: "2.4rem", marginBottom: "20px" }}>Meet Our Trainer</h2>
 
-      <Slider {...settings}>
-        {trainers.map((trainer, index) => (
-          <div key={index}>
-            <div
-              style={card}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+      <div style={cardStyle}>
+        <img
+          src={trainers[currentIndex].image}
+          alt={trainers[currentIndex].name}
+          style={imageStyle}
+        />
+
+        <div style={{ textAlign: isMobile ? "center" : "left", flex: 1 }}>
+          <h3 style={{ fontSize: "1.8rem", color: "#e63946" }}>{trainers[currentIndex].name}</h3>
+          <p style={{ fontWeight: "500", color: "#ffb703" }}>{trainers[currentIndex].role}</p>
+          <p style={{ color: "#ccc", marginTop: "10px" }}>{trainers[currentIndex].bio}</p>
+
+          <div style={{ display: "flex", justifyContent: isMobile ? "center" : "flex-start", gap: "15px", marginTop: "20px" }}>
+            <button
+              style={btnStyle}
+              onClick={prevTrainer}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
               onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
-              <img src={trainer.img} alt={trainer.name} style={imgStyle} />
-              <h3 style={{ marginBottom: "8px", fontSize: "1.4rem" }}>{trainer.name}</h3>
-              <p style={{ color: "#ccc" }}>{trainer.role}</p>
-            </div>
+              ◀ Previous
+            </button>
+            <button
+              style={btnStyle}
+              onClick={nextTrainer}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+              Next ▶
+            </button>
           </div>
-        ))}
-      </Slider>
+        </div>
+      </div>
     </section>
   );
 }
-
-export default Trainers;
