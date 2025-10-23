@@ -42,9 +42,9 @@ function Testimonials() {
           src={reviews[currentIndex].img}
           alt={reviews[currentIndex].name}
           style={{
-            width: "120px",
-            height: "120px",
-            borderRadius: "50%",
+            width: "100px",
+            height: "100px",
+            borderRadius: "10%",
             objectFit: "cover",
             border: "4px solid #e63946",
             margin: "-80px auto 20px",
