@@ -16,35 +16,39 @@ export default function Header() {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: isMobile ? "10px 15px" : "15px 40px", // reduced side padding on mobile
+      padding: isMobile ? "10px 15px" : "15px 40px",
       zIndex: 1000,
       boxSizing: "border-box",
       boxShadow: "0 2px 10px rgba(0,0,0,0.4)",
-      overflow: "hidden", // prevents any accidental horizontal scroll
+      flexWrap: isMobile ? "wrap" : "nowrap", // allow wrapping on mobile
+      gap: isMobile ? "10px" : "0", // spacing when wrapped
     },
     logo: {
       fontSize: isMobile ? "18px" : "22px",
       fontWeight: "700",
       cursor: "pointer",
-      flexShrink: 0, // prevents logo from shrinking
+      flexShrink: 0,
     },
     btn: {
       background: "linear-gradient(90deg, #ff6600, #ff2e63)",
       color: "white",
       border: "none",
-      padding: isMobile ? "8px 12px" : "12px 25px", // slightly smaller on mobile
+      padding: isMobile ? "8px 10px" : "12px 25px",
       borderRadius: "8px",
       cursor: "pointer",
       fontWeight: "600",
       fontSize: isMobile ? "13px" : "16px",
       transition: "all 0.3s ease",
       boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-      flexShrink: 0, // prevents button from shrinking
+      flexShrink: 0,
+      whiteSpace: "nowrap", // prevent breaking mid-word
+      maxWidth: isMobile ? "100%" : "auto", // fit mobile screen
+      textAlign: "center",
     },
   };
 
   const handleCall = () => {
-    window.location.href = "tel:+919876543210"; // Replace with your number
+    window.location.href = "tel:+919876543210";
   };
 
   return (

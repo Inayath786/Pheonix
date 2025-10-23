@@ -173,9 +173,9 @@ background: "linear-gradient(135deg, #0f2027, #2c5364)"
         </style>
       </footer>
 
-      <button style={scrollButtonStyle} onClick={scrollToTop}>
+      {/* <button style={scrollButtonStyle} onClick={scrollToTop}>
         <i className="fas fa-arrow-up"></i>
-      </button>
+      </button> */}
     </>
   );
 }

@@ -53,11 +53,11 @@ function Trainers() {
   };
 
   const trainers = [
-    { img: "/trainer2.jpg", name: "John Carter", role: "Strength & Conditioning Coach" },
-    { img: "/trainer1.jpg", name: "Sarah Kim", role: "Yoga Instructor" },
-    { img: "/trainer3.jpg", name: "Mike Ross", role: "Personal Trainer" },
-    { img: "https://images.unsplash.com/photo-1594737625785-cdf97e3503c9", name: "Emma Watson", role: "Pilates Expert" },
-    { img: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1", name: "Liam Scott", role: "CrossFit Specialist" },
+    { img: "/trainer2.jpg", name: "John Carter" },
+    { img: "/trainer1.jpg", name: "Sarah Kim" },
+    { img: "/trainer3.jpg", name: "Mike Ross" },
+    { img: "https://images.unsplash.com/photo-1594737625785-cdf97e3503c9", name: "Emma Watson"},
+    { img: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1", name: "Liam Scott" },
   ];
 
   return (

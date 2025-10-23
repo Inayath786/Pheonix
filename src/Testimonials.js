@@ -47,7 +47,7 @@ function Testimonials() {
             borderRadius: "10%",
             objectFit: "cover",
             border: "4px solid #e63946",
-            margin: "-80px auto 20px",
+            margin: "-20px auto 20px",
             display: "block",
             background: "#111"
           }}

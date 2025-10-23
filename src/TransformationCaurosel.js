@@ -23,13 +23,8 @@ export default function TransformationCarousel() {
     },
   ];
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % members.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + members.length) % members.length);
-  };
+  const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % members.length);
+  const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + members.length) % members.length);
 
   // ===== Styles =====
   const sectionStyle = {
@@ -42,20 +37,22 @@ export default function TransformationCarousel() {
     color: "#fff",
     gap: isMobile ? "30px" : "60px",
     textAlign: "center",
-    overflow: "hidden",
+    overflowX: "hidden", // prevent horizontal scroll
   };
 
   const imagesContainer = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    flexWrap: "nowrap",
-    gap: "15px",
+    flexWrap: isMobile ? "wrap" : "nowrap",
+    gap: isMobile ? "15px" : "20px",
+    width: isMobile ? "100%" : "auto",
   };
 
   const imageStyle = {
-    width: isMobile ? "45vw" : "320px",
-    height: isMobile ? "45vw" : "320px",
+    width: isMobile ? "48%" : "320px",
+    maxWidth: "100%",
+    height: isMobile ? "auto" : "320px",
     objectFit: "cover",
     borderRadius: "12px",
     boxShadow: "0 6px 20px rgba(0,0,0,0.6)",
@@ -63,15 +60,16 @@ export default function TransformationCarousel() {
   };
 
   const textContainer = {
-    maxWidth: isMobile ? "90%" : "500px",
+    maxWidth: isMobile ? "100%" : "500px",
     textAlign: isMobile ? "center" : "left",
   };
 
   const btnContainer = {
     marginTop: "20px",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: isMobile ? "center" : "flex-start",
     gap: "20px",
+    flexWrap: "wrap",
   };
 
   const btnStyle = {
@@ -83,13 +81,13 @@ export default function TransformationCarousel() {
     cursor: "pointer",
     fontWeight: "600",
     transition: "background 0.3s ease, transform 0.2s ease",
+    whiteSpace: "nowrap",
   };
 
   const handleHover = (e, scale) => {
     e.target.style.transform = `scale(${scale})`;
   };
 
-  // ===== JSX =====
   return (
     <section id="transformations" style={sectionStyle}>
       {/* Images */}
