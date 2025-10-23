@@ -44,14 +44,7 @@ function Navbar() {
       </style>
       <nav style={navStyle}>
         <h2>Phoenix Fitness</h2>
-        <ul style={navLinks}>
-          <li><a href="#hero" style={linkStyle}>Home</a></li>
-          <li><a href="#about" style={linkStyle}>About</a></li>
-          <li><a href="#programs" style={linkStyle}>Programs</a></li>
-          <li><a href="#trainers" style={linkStyle}>Trainers</a></li>
-          <li><a href="#pricing" style={linkStyle}>Pricing</a></li>
-          <li><a href="#contact" style={linkStyle}>Contact</a></li>
-        </ul>
+      
       </nav>
     </>
   );
