@@ -31,50 +31,65 @@ export default function TransformationCarousel() {
     setCurrentIndex((prev) => (prev - 1 + members.length) % members.length);
   };
 
+  // ===== Styles =====
   const sectionStyle = {
     display: "flex",
     flexDirection: isMobile ? "column" : "row",
     alignItems: "center",
     justifyContent: "center",
-    padding: "80px 10%",
+    padding: isMobile ? "60px 5%" : "100px 10%",
     background: "#111",
     color: "#fff",
-    gap: "40px",
+    gap: isMobile ? "30px" : "60px",
+    textAlign: "center",
+    overflow: "hidden",
   };
 
   const imagesContainer = {
     display: "flex",
-    gap: "20px",
     justifyContent: "center",
-    flexWrap: "wrap",
+    alignItems: "center",
+    flexWrap: "nowrap",
+    gap: "15px",
   };
 
   const imageStyle = {
-    width: isMobile ? "250px" : "350px",
-    height: isMobile ? "250px" : "350px",
+    width: isMobile ? "45vw" : "320px",
+    height: isMobile ? "45vw" : "320px",
     objectFit: "cover",
-    borderRadius: "10px",
-    boxShadow: "0 5px 15px rgba(0,0,0,0.5)",
+    borderRadius: "12px",
+    boxShadow: "0 6px 20px rgba(0,0,0,0.6)",
+    transition: "transform 0.3s ease",
+  };
+
+  const textContainer = {
+    maxWidth: isMobile ? "90%" : "500px",
+    textAlign: isMobile ? "center" : "left",
+  };
+
+  const btnContainer = {
+    marginTop: "20px",
+    display: "flex",
+    justifyContent: "center",
+    gap: "20px",
   };
 
   const btnStyle = {
     background: "#ff4500",
     border: "none",
     padding: "10px 20px",
-    margin: "10px",
     color: "#fff",
-    borderRadius: "5px",
+    borderRadius: "8px",
     cursor: "pointer",
     fontWeight: "600",
+    transition: "background 0.3s ease, transform 0.2s ease",
   };
 
-  const textStyle = {
-    maxWidth: "500px",
-    textAlign: isMobile ? "center" : "left",
-    fontSize: isMobile ? "16px" : "18px",
-    lineHeight: "1.6",
+  const handleHover = (e, scale) => {
+    e.target.style.transform = `scale(${scale})`;
   };
 
+  // ===== JSX =====
   return (
     <section id="transformations" style={sectionStyle}>
       {/* Images */}
@@ -83,31 +98,40 @@ export default function TransformationCarousel() {
           src={members[currentIndex].before}
           alt={`${members[currentIndex].name} before`}
           style={imageStyle}
+          onMouseEnter={(e) => handleHover(e, 1.05)}
+          onMouseLeave={(e) => handleHover(e, 1)}
         />
         <img
           src={members[currentIndex].after}
           alt={`${members[currentIndex].name} after`}
           style={imageStyle}
+          onMouseEnter={(e) => handleHover(e, 1.05)}
+          onMouseLeave={(e) => handleHover(e, 1)}
         />
       </div>
 
-      {/* Text */}
-      <div style={textStyle}>
-        <h2 style={{ marginBottom: "20px" }}>Our Fitness Journey</h2>
-        <p>
-          At Phoenix Fitness, we empower people to transform their lives. From
-          struggling with fitness to achieving their dream bodies, our members
-          have seen incredible results with our expert trainers, personalized
-          programs, and supportive community. Join us and start your journey
-          today!
+      {/* Text + Buttons */}
+      <div style={textContainer}>
+        <h2 style={{ marginBottom: "15px", color: "#ff4500" }}>Our Fitness Journey</h2>
+        <p style={{ fontSize: isMobile ? "15px" : "17px", lineHeight: "1.7" }}>
+          At <b>Phoenix Fitness</b>, we empower people to transform their lives. From struggling with fitness to achieving their dream bodies, our members have seen incredible results with our expert trainers, personalized programs, and supportive community.
         </p>
 
-        {/* Carousel Buttons */}
-        <div style={{ marginTop: "20px" }}>
-          <button style={btnStyle} onClick={prevSlide}>
+        <div style={btnContainer}>
+          <button
+            style={btnStyle}
+            onClick={prevSlide}
+            onMouseEnter={(e) => (e.target.style.background = "#e13c00")}
+            onMouseLeave={(e) => (e.target.style.background = "#ff4500")}
+          >
             ◀ Previous
           </button>
-          <button style={btnStyle} onClick={nextSlide}>
+          <button
+            style={btnStyle}
+            onClick={nextSlide}
+            onMouseEnter={(e) => (e.target.style.background = "#e13c00")}
+            onMouseLeave={(e) => (e.target.style.background = "#ff4500")}
+          >
             Next ▶
           </button>
         </div>

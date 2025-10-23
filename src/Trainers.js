@@ -1,65 +1,106 @@
 import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function Trainers() {
   const sectionStyle = {
-    padding: "60px 10%",
+    padding: "60px 8%",
     backgroundColor: "#000",
     color: "#fff",
     textAlign: "center",
-  };
-
-  const trainerGrid = {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gap: "20px",
+    overflow: "hidden", // prevents extra scroll on mobile
   };
 
   const card = {
     backgroundColor: "#111",
-    borderRadius: "10px",
+    borderRadius: "15px",
     padding: "20px",
+    textAlign: "center",
+    boxShadow: "0 0 15px rgba(255,255,255,0.1)",
+    transition: "transform 0.3s ease",
   };
 
   const imgStyle = {
     width: "100%",
     borderRadius: "10px",
-    height: "250px",
+    height: "280px",
     objectFit: "cover",
+    marginBottom: "15px",
   };
 
-  return (
-    <>
-      <style>
-        {`
-        @media (max-width: 768px) {
-          .trainer-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-        `}
-      </style>
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
 
-      <section id="trainers" style={sectionStyle}>
-        <h2>Meet Our Trainers</h2>
-        <div className="trainer-grid" style={trainerGrid}>
-          <div style={card}>
-            <img src="https://images.unsplash.com/photo-1598970434795-0c54fe7c0648" alt="Trainer 1" style={imgStyle} />
-            <h3>John Carter</h3>
-            <p>Strength & Conditioning Coach</p>
+  const trainers = [
+    {
+      img: "/trainer2.jpg",
+      name: "John Carter",
+      role: "Strength & Conditioning Coach",
+    },
+    {
+      img: "/trainer1.jpg",
+      name: "Sarah Kim",
+      role: "Yoga Instructor",
+    },
+    {
+      img: "/trainer3.jpg",
+      name: "Mike Ross",
+      role: "Personal Trainer",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1594737625785-cdf97e3503c9",
+      name: "Emma Watson",
+      role: "Pilates Expert",
+    },
+    {
+      img: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1",
+      name: "Liam Scott",
+      role: "CrossFit Specialist",
+    },
+  ];
+
+  return (
+    <section id="trainers" style={sectionStyle}>
+      <h2 style={{ fontSize: "2.5rem", marginBottom: "40px", fontWeight: "bold" }}>
+        Meet Our Trainers
+      </h2>
+
+      <Slider {...settings}>
+        {trainers.map((trainer, index) => (
+          <div key={index}>
+            <div
+              style={{
+                ...card,
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+              <img src={trainer.img} alt={trainer.name} style={imgStyle} />
+              <h3 style={{ marginBottom: "8px", fontSize: "1.4rem" }}>{trainer.name}</h3>
+              <p style={{ color: "#ccc" }}>{trainer.role}</p>
+            </div>
           </div>
-          <div style={card}>
-            <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1" alt="Trainer 2" style={imgStyle} />
-            <h3>Sarah Kim</h3>
-            <p>Yoga Instructor</p>
-          </div>
-          <div style={card}>
-            <img src="/pheonix-fitness/gymholic.jpeg" alt="Trainer 3" style={imgStyle} />
-            <h3>Mike Ross</h3>
-            <p>Personal Trainer</p>
-          </div>
-        </div>
-      </section>
-    </>
+        ))}
+      </Slider>
+    </section>
   );
 }
 

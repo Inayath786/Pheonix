@@ -1,17 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import useResponsive from "./useResponsive";
 
-const scrollToSection = (id) => {
-  const section = document.getElementById(id);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
-
-export default function Header({ scrollToSection, openModal }) {
+export default function Header() {
   const { isMobile } = useResponsive();
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const styles = {
     header: {
@@ -30,65 +21,41 @@ export default function Header({ scrollToSection, openModal }) {
       boxSizing: "border-box",
       boxShadow: "0 2px 10px rgba(0,0,0,0.4)",
     },
-    logo: { fontSize: isMobile ? "18px" : "22px", fontWeight: "700", cursor: "pointer" },
-    nav: {
-      display: isMobile ? (menuOpen ? "flex" : "none") : "flex",
-      flexDirection: isMobile ? "column" : "row",
-      position: isMobile ? "absolute" : "static",
-      top: isMobile ? "60px" : "auto",
-      left: isMobile ? 0 : "auto",
-      right: isMobile ? 0 : "auto",
-      width: isMobile ? "100%" : "auto",
-      background: isMobile ? "#111" : "none",
-      gap: "20px",
-      padding: isMobile ? "10px 0" : 0,
-      textAlign: "center",
-      zIndex: 999,
-    },
-    navLink: {
-      color: "white",
-      textDecoration: "none",
+    logo: {
+      fontSize: isMobile ? "18px" : "22px",
+      fontWeight: "700",
       cursor: "pointer",
-      padding: isMobile ? "12px 0" : "10px 0",
-      display: isMobile ? "block" : "inline-block",
-      width: isMobile ? "100%" : "auto",
     },
     btn: {
-      background: "#ff4500",
+      background: "linear-gradient(90deg, #ff6600, #ff2e63)",
       color: "white",
       border: "none",
-      padding: isMobile ? "8px 14px" : "10px 20px",
-      borderRadius: "5px",
+      padding: isMobile ? "10px 16px" : "12px 25px",
+      borderRadius: "8px",
       cursor: "pointer",
       fontWeight: "600",
+      fontSize: isMobile ? "14px" : "16px",
+      transition: "all 0.3s ease",
+      boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
     },
-    menuIcon: { fontSize: "26px", cursor: "pointer", display: isMobile ? "block" : "none" },
+  };
+
+  const handleCall = () => {
+    window.location.href = "tel:+919876543210"; // Replace with your number
   };
 
   return (
     <header style={styles.header}>
-      <div style={styles.logo} onClick={() => scrollToSection("home")}>
-        🔥 Phoenix Fitness
-      </div>
+      <div style={styles.logo}>🔥 Phoenix Fitness</div>
 
-      <div style={styles.menuIcon} onClick={() => setMenuOpen(!menuOpen)}>
-        ☰
-      </div>
-
-      <nav style={styles.nav}>
-        <a style={styles.navLink} onClick={() => { scrollToSection("home"); setMenuOpen(false); }}>Home</a>
-        <a style={styles.navLink} onClick={() => { scrollToSection("about"); setMenuOpen(false); }}>About</a>
-        <a style={styles.navLink} onClick={() => { scrollToSection("services"); setMenuOpen(false); }}>Services</a>
-        <a style={styles.navLink} onClick={() => { scrollToSection("pricing"); setMenuOpen(false); }}>Pricing</a>
-        <a style={styles.navLink} onClick={() => { scrollToSection("contact"); setMenuOpen(false); }}>Contact</a>
-      </nav>
-      
-
-      {/* {!isMobile && (
-        <button style={styles.btn} onClick={openModal}>
-          Book Trial
-        </button>
-      )} */}
+      <button
+        style={styles.btn}
+        onMouseEnter={(e) => (e.target.style.transform = "scale(1.08)")}
+        onMouseLeave={(e) => (e.target.style.transform = "scale(1)")}
+        onClick={handleCall}
+      >
+        Start Free Trial
+      </button>
     </header>
   );
 }

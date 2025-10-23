@@ -1,47 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Testimonials() {
-  const sectionStyle = {
-    padding: "80px 10%",
-    background: "linear-gradient(135deg, #000, #111)",
-    color: "#fff",
-    textAlign: "center",
-  };
-
-  const grid = {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gap: "25px",
-    marginTop: "50px",
-  };
-
-  const card = {
-    backgroundColor: "#1a1a1a",
-    padding: "30px 20px",
-    borderRadius: "15px",
-    boxShadow: "0 0 20px rgba(255,255,255,0.05)",
-    transition: "transform 0.3s, box-shadow 0.3s",
-  };
-
-  const cardHover = {
-    transform: "translateY(-10px)",
-    boxShadow: "0 0 25px rgba(255,255,255,0.15)",
-  };
-
-  const imgStyle = {
-    width: "90px",
-    height: "90px",
-    borderRadius: "50%",
-    objectFit: "cover",
-    marginBottom: "15px",
-    border: "3px solid #e63946",
-  };
-
-  const nameStyle = {
-    marginTop: "10px",
-    fontWeight: "bold",
-    color: "#e63946",
-  };
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const reviews = [
     {
@@ -82,46 +42,136 @@ function Testimonials() {
     },
   ];
 
+  const nextReview = () => {
+    setCurrentIndex((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevReview = () => {
+    setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
+
+  const sectionStyle = {
+    padding: "80px 10%",
+    background: "linear-gradient(135deg, #000, #111)",
+    color: "#fff",
+    textAlign: "center",
+    overflow: "hidden",
+  };
+
+  const card = {
+    backgroundColor: "#1a1a1a",
+    padding: "40px 30px",
+    borderRadius: "15px",
+    boxShadow: "0 0 25px rgba(255,255,255,0.08)",
+    maxWidth: "500px",
+    margin: "40px auto 20px",
+    transition: "all 0.6s ease",
+  };
+
+  const imgStyle = {
+    width: "100px",
+    height: "100px",
+    borderRadius: "50%",
+    objectFit: "cover",
+    marginBottom: "15px",
+    border: "3px solid #e63946",
+  };
+
+  const nameStyle = {
+    marginTop: "10px",
+    fontWeight: "bold",
+    color: "#e63946",
+    fontSize: "1.1rem",
+  };
+
+  const btnContainer = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "20px",
+    marginTop: "20px",
+  };
+
+  const btnStyle = {
+    background: "#ff4500",
+    border: "none",
+    padding: "10px 18px",
+    color: "#fff",
+    borderRadius: "8px",
+    cursor: "pointer",
+    fontWeight: "600",
+    fontSize: "0.95rem",
+    transition: "all 0.3s ease",
+  };
+
+  const dotsContainer = {
+    display: "flex",
+    justifyContent: "center",
+    gap: "10px",
+    marginTop: "15px",
+  };
+
+  const dot = (isActive) => ({
+    width: "10px",
+    height: "10px",
+    borderRadius: "50%",
+    background: isActive ? "#ff4500" : "#666",
+    transition: "all 0.3s ease",
+  });
+
   return (
-    <>
-      <style>
-        {`
-        @media (max-width: 1024px) {
-          .testimonials-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
+    <section id="testimonials" style={sectionStyle}>
+      <h2 style={{ fontSize: "2rem", letterSpacing: "1px" }}>What Our Members Say</h2>
+      <p style={{ color: "#bbb", marginTop: "10px" }}>
+        Real stories from real people who’ve transformed their lives at Phoenix Fitness.
+      </p>
 
-        @media (max-width: 768px) {
-          .testimonials-grid {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        .testimonial-card:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 0 25px rgba(255,255,255,0.15);
-        }
-        `}
-      </style>
-
-      <section id="testimonials" style={sectionStyle}>
-        <h2 style={{ fontSize: "2rem", letterSpacing: "1px" }}>What Our Members Say</h2>
-        <p style={{ color: "#bbb", marginTop: "10px" }}>
-          Real stories from real people who’ve transformed their lives at Phoenix Fitness.
+      <div style={card}>
+        <img
+          src={reviews[currentIndex].img}
+          alt={reviews[currentIndex].name}
+          style={imgStyle}
+        />
+        <p
+          style={{
+            fontStyle: "italic",
+            color: "#ccc",
+            fontSize: "1rem",
+            lineHeight: "1.6",
+          }}
+        >
+          “{reviews[currentIndex].review}”
         </p>
+        <h4 style={nameStyle}>– {reviews[currentIndex].name}</h4>
+      </div>
 
-        <div className="testimonials-grid" style={grid}>
-          {reviews.map((r, i) => (
-            <div key={i} className="testimonial-card" style={card}>
-              <img src={r.img} alt={r.name} style={imgStyle} />
-              <p style={{ fontStyle: "italic", color: "#ccc" }}>"{r.review}"</p>
-              <h4 style={nameStyle}>– {r.name}</h4>
-            </div>
-          ))}
-        </div>
-      </section>
-    </>
+      {/* Buttons */}
+      <div style={btnContainer}>
+        <button
+          style={btnStyle}
+          onClick={prevReview}
+          onMouseEnter={(e) => (e.target.style.background = "#e13c00")}
+          onMouseLeave={(e) => (e.target.style.background = "#ff4500")}
+        >
+          ◀ Previous
+        </button>
+        <button
+          style={btnStyle}
+          onClick={nextReview}
+          onMouseEnter={(e) => (e.target.style.background = "#e13c00")}
+          onMouseLeave={(e) => (e.target.style.background = "#ff4500")}
+        >
+          Next ▶
+        </button>
+      </div>
+
+      {/* Dots Indicator */}
+      <div style={dotsContainer}>
+        {reviews.map((_, index) => (
+          <div key={index} style={dot(index === currentIndex)}></div>
+        ))}
+      </div>
+    </section>
   );
 }
 

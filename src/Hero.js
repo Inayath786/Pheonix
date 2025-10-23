@@ -12,7 +12,7 @@ export default function Hero({ openModal }) {
       padding: isMobile ? "0 15px" : "0 40px", // reduce padding slightly to avoid overflow
       boxSizing: "border-box", // include padding inside width
       backgroundImage:
-        "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1920&q=80')",
+        "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/pheonix.jpg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       display: "flex",

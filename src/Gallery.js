@@ -3,10 +3,11 @@ import React, { useState } from "react";
 function Gallery() {
   const [index, setIndex] = useState(0);
   const images = [
-    "https://images.unsplash.com/photo-1579758629938-03607ccdbaba",
-    "https://images.unsplash.com/photo-1594737625785-cbdb4c0c9f5f",
-    "https://images.unsplash.com/photo-1554284126-aa88f22d8b74",
-    "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
+    "/place1.jpg",
+    "/place2.jpg",
+    "/place3.jpg",
+    "/place4.jpg",
+    "/place5.jpg",
   ];
 
   const sectionStyle = {
