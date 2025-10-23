@@ -9,7 +9,7 @@ function Trainers() {
     backgroundColor: "#000",
     color: "#fff",
     textAlign: "center",
-    overflow: "hidden", // prevents extra scroll on mobile
+    overflow: "hidden",
   };
 
   const card = {
@@ -19,12 +19,14 @@ function Trainers() {
     textAlign: "center",
     boxShadow: "0 0 15px rgba(255,255,255,0.1)",
     transition: "transform 0.3s ease",
+    maxWidth: "280px", // limit card width
+    margin: "0 auto",  // center in slide
   };
 
   const imgStyle = {
     width: "100%",
     borderRadius: "10px",
-    height: "280px",
+    height: "250px",
     objectFit: "cover",
     marginBottom: "15px",
   };
@@ -37,6 +39,7 @@ function Trainers() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2500,
+    centerMode: false, // prevents weird scaling
     responsive: [
       {
         breakpoint: 1024,
@@ -44,37 +47,17 @@ function Trainers() {
       },
       {
         breakpoint: 768,
-        settings: { slidesToShow: 1 },
+        settings: { slidesToShow: 1, centerMode: false, arrows: false },
       },
     ],
   };
 
   const trainers = [
-    {
-      img: "/trainer2.jpg",
-      name: "John Carter",
-      role: "Strength & Conditioning Coach",
-    },
-    {
-      img: "/trainer1.jpg",
-      name: "Sarah Kim",
-      role: "Yoga Instructor",
-    },
-    {
-      img: "/trainer3.jpg",
-      name: "Mike Ross",
-      role: "Personal Trainer",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1594737625785-cdf97e3503c9",
-      name: "Emma Watson",
-      role: "Pilates Expert",
-    },
-    {
-      img: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1",
-      name: "Liam Scott",
-      role: "CrossFit Specialist",
-    },
+    { img: "/trainer2.jpg", name: "John Carter", role: "Strength & Conditioning Coach" },
+    { img: "/trainer1.jpg", name: "Sarah Kim", role: "Yoga Instructor" },
+    { img: "/trainer3.jpg", name: "Mike Ross", role: "Personal Trainer" },
+    { img: "https://images.unsplash.com/photo-1594737625785-cdf97e3503c9", name: "Emma Watson", role: "Pilates Expert" },
+    { img: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1", name: "Liam Scott", role: "CrossFit Specialist" },
   ];
 
   return (
@@ -87,9 +70,7 @@ function Trainers() {
         {trainers.map((trainer, index) => (
           <div key={index}>
             <div
-              style={{
-                ...card,
-              }}
+              style={card}
               onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
               onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
