@@ -3,8 +3,8 @@ import React from "react";
 function Contact() {
   const buttonStyle = {
     position: "fixed",
-    bottom: "30px",
-    right: "30px",
+    bottom: "20px",
+    right: "20px",
     backgroundColor: "#25D366",
     color: "#fff",
     border: "none",
@@ -15,7 +15,30 @@ function Contact() {
     boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
     transition: "transform 0.2s ease",
     zIndex: 1000,
+    fontSize: "16px",
   };
+
+  // Adjust size for mobile using window width
+  const handleResize = () => {
+    if (window.innerWidth < 480) {
+      return {
+        ...buttonStyle,
+        padding: "10px 14px",
+        fontSize: "14px",
+        bottom: "15px",
+        right: "15px",
+      };
+    }
+    return buttonStyle;
+  };
+
+  const [style, setStyle] = React.useState(handleResize());
+
+  React.useEffect(() => {
+    const onResize = () => setStyle(handleResize());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   return (
     <>
@@ -26,13 +49,9 @@ function Contact() {
         rel="noopener noreferrer"
       >
         <button
-          style={buttonStyle}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.transform = "scale(1.05)")
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.transform = "scale(1)")
-          }
+          style={style}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         >
           Chat on WhatsApp 💬
         </button>

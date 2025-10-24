@@ -43,21 +43,21 @@ function AboutUs() {
   return (
     <section id="about" style={sectionStyle}>
       <div style={textContainer}>
-        <h2 style={heading}>About Phoenix Fitness</h2>
+        <h2 style={heading}>Phoenix Fitness Hyderabad</h2>
         <p style={paragraph}>
-          At Phoenix Fitness, we empower individuals to transform their lives
-          through personalized training, nutrition guidance, and a supportive
-          community. Our mission is to help you achieve your fitness goals,
-          whether it's building strength, losing weight, or boosting overall
-          wellness. Join us and discover a healthier, stronger version of
-          yourself!
+        Transform Your Life with Phoenix Fitness – Personalized Training & Nutrition Guidance
+
+At Phoenix Fitness, we help individuals achieve their fitness goals through personalized training programs,
+ custom nutrition plans, and a supportive fitness community. Whether you want to lose weight, build muscle,
+  increase strength, or boost overall wellness, our expert trainers and nutrition specialists guide you every
+   step of the way. Join Phoenix Fitness today and discover a healthier, stronger, and fitter version of yourself!
         </p>
       </div>
 
       <div style={imageContainer}>
         <img
           src="/pheonix2.jpg"
-          alt="Phoenix Fitness"
+          alt="Phoenix Fitness GYM"
           style={imageStyle}
         />
       </div>

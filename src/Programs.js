@@ -49,9 +49,9 @@ export default function Programs() {
     { name: "Strength Training", desc: "Build muscle, gain endurance.", icon: "💪" },
     { name: "Cardio Burn", desc: "High-intensity cardio sessions.", icon: "🏃‍♂️" },
     { name: "Yoga & Flexibility", desc: "Improve posture and flexibility.", icon: "🧘‍♀️" },
-    { name: "HIIT Power", desc: "Short intense workouts.", icon: "🔥" },
+    
     { name: "CrossFit Challenge", desc: "Weightlifting & functional workouts.", icon: "🏋️‍♀️" },
-    { name: "Zumba & Dance", desc: "Fun dance sessions.", icon: "🎶" },
+    { name: "FatLoss", desc: "Transforming from fat to fit", icon: "💪" },
   ];
 
   const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % programs.length);

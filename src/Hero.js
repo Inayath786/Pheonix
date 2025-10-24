@@ -54,8 +54,7 @@ export default function Hero({ openModal }) {
     <section id="home" style={styles.hero}>
       <h1 style={styles.title}>Rise Stronger with Phoenix Fitness</h1>
       <p style={styles.text}>
-        Unleash your potential with professional trainers, modern equipment, and
-        a supportive fitness community.
+        Unleash Your Fitness Potential with Expert Personal Trainers, Modern Gym Equipment, and a Supportive Fitness Community
       </p>
       {/* <button
         style={styles.btn}

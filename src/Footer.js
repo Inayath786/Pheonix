@@ -96,7 +96,7 @@ background: "linear-gradient(135deg, #0f2027, #2c5364)"
             animation: "fadeInUp 1.5s ease-in-out",
           }}
         >
-          Join the Phoenix Fitness Family 🔥
+          Join the Phoenix Fitness Family 🔥and transform your life
         </h2>
         <p style={{ fontSize: "1rem", marginBottom: "30px" }}>
           Empowering lives through fitness, dedication, and strength.
@@ -118,7 +118,7 @@ background: "linear-gradient(135deg, #0f2027, #2c5364)"
         </div>
 
         <p style={{ marginTop: "40px", fontSize: "0.9rem", opacity: 0.8 }}>
-          © {new Date().getFullYear()} Phoenix Fitness. All Rights Reserved.
+          © {new Date().getFullYear()} Phoenix Fitness. All Rights Reserved As the best Gym in Hyderabad.
         </p>
 
         <style>

@@ -2,13 +2,13 @@ import React, { useState } from "react";
 
 function Gallery() {
   const [index, setIndex] = useState(0);
-  const images = [
-    "/place1.jpg",
-    "/place2.jpg",
-    "/place3.jpg",
-    "/place4.jpg",
-    "/place5.jpg",
-  ];
+ const images = [
+  { src: "/place1.jpg", alt: "Best gym for weight loss in Hyderabad" },
+  { src: "/place2.jpg", alt: "Personalized training programs at Phoenix Fitness" },
+  { src: "/place3.jpg", alt: "Gym for muscle building and strength training" },
+  { src: "/place4.jpg", alt: "Wellness and fitness coaching near me" },
+  { src: "/place5.jpg", alt: "Group fitness classes and personal training" },
+];
 
   const sectionStyle = {
     padding: "60px 10%",
