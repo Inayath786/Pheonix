@@ -2,13 +2,14 @@ import React, { useState } from "react";
 
 function Gallery() {
   const [index, setIndex] = useState(0);
- const images = [
-  { src: "/place1.jpg", alt: "Best gym for weight loss in Hyderabad" },
-  { src: "/place2.jpg", alt: "Personalized training programs at Phoenix Fitness" },
-  { src: "/place3.jpg", alt: "Gym for muscle building and strength training" },
-  { src: "/place4.jpg", alt: "Wellness and fitness coaching near me" },
-  { src: "/place5.jpg", alt: "Group fitness classes and personal training" },
-];
+
+  const images = [
+    { src: "/place1.jpg", alt: "Best gym for weight loss in Hyderabad" },
+    { src: "/place2.jpg", alt: "Personalized training programs at Phoenix Fitness" },
+    { src: "/place3.jpg", alt: "Gym for muscle building and strength training" },
+    { src: "/place4.jpg", alt: "Wellness and fitness coaching near me" },
+    { src: "/place5.jpg", alt: "Group fitness classes and personal training" },
+  ];
 
   const sectionStyle = {
     padding: "60px 10%",
@@ -36,6 +37,7 @@ function Gallery() {
     width: "100%",
     height: "400px",
     objectFit: "cover",
+    flexShrink: 0,
   };
 
   const buttonStyle = {
@@ -48,6 +50,7 @@ function Gallery() {
     fontSize: "24px",
     cursor: "pointer",
     padding: "10px 15px",
+    zIndex: 2,
   };
 
   const next = () => setIndex((prev) => (prev + 1) % images.length);
@@ -69,8 +72,8 @@ function Gallery() {
         <h2>Our Gym Gallery</h2>
         <div style={carouselContainer}>
           <div style={slideTrack}>
-            {images.map((src, i) => (
-              <img key={i} src={src} alt={`gym-${i}`} style={imgStyle} />
+            {images.map((img, i) => (
+              <img key={i} src={img.src} alt={img.alt} style={imgStyle} />
             ))}
           </div>
           <button style={{ ...buttonStyle, left: "10px" }} onClick={prev}>

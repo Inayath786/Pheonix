@@ -55,14 +55,14 @@ export default function Header() {
   return (
     <header style={headerStyle}>
       <div style={logoStyle}>🔥 Phoenix Fitness</div>
-      <button
+      {/* <button
         style={btnStyle}
         onClick={handleCall}
         onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
         onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
       >
         Start Free Trial
-      </button>
+      </button> */}
     </header>
   );
 }

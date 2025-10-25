@@ -49,7 +49,6 @@ export default function Programs() {
     { name: "Strength Training", desc: "Build muscle, gain endurance.", icon: "💪" },
     { name: "Cardio Burn", desc: "High-intensity cardio sessions.", icon: "🏃‍♂️" },
     { name: "Yoga & Flexibility", desc: "Improve posture and flexibility.", icon: "🧘‍♀️" },
-    
     { name: "CrossFit Challenge", desc: "Weightlifting & functional workouts.", icon: "🏋️‍♀️" },
     { name: "FatLoss", desc: "Transforming from fat to fit", icon: "💪" },
   ];

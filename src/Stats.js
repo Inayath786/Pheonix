@@ -5,10 +5,9 @@ export default function Stats() {
   const { isMobile } = useResponsive();
 
   const statsData = [
-    { label: "Members", value: 500 },
+    { label: "Happy Customers", value: 500 },
     { label: "Trainers", value: 20 },
-    { label: "Stores", value: 10 },
-    { label: "Awards", value: 12 },
+    { label: "Stores", value: 2 },
   ];
 
   const [counts, setCounts] = useState(statsData.map(() => 0));

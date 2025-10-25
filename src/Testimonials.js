@@ -4,12 +4,12 @@ function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const reviews = [
-    { name: "Rahul Mehta", img: "https://randomuser.me/api/portraits/men/32.jpg", review: "Phoenix Fitness completely changed my lifestyle! The trainers are extremely motivating and the environment pushes me to improve daily." },
-    { name: "Priya Sharma", img: "https://randomuser.me/api/portraits/women/44.jpg", review: "I joined for a 3-month transformation and now it’s been a year. The results speak for themselves. Highly recommended!" },
-    { name: "Aditya Rao", img: "https://randomuser.me/api/portraits/men/21.jpg", review: "The best gym in town! Equipment is top-notch, trainers are knowledgeable, and the community is so supportive." },
-    { name: "Sneha Patel", img: "https://randomuser.me/api/portraits/women/68.jpg", review: "The group workouts are my favorite! It’s fun, challenging, and you leave feeling stronger every time." },
-    { name: "Rohit Verma", img: "https://randomuser.me/api/portraits/men/53.jpg", review: "Clean environment, professional trainers, and affordable pricing. Phoenix Fitness is easily a 10/10 experience." },
-    { name: "Aaradhya Iyer", img: "https://randomuser.me/api/portraits/women/72.jpg", review: "The personal training program helped me achieve my fitness goals faster than I imagined. Great attention to detail and form!" },
+    { name: "Rahul Mehta", review: "Phoenix Fitness completely changed my lifestyle! The trainers are extremely motivating and the environment pushes me to improve daily." },
+    { name: "Priya Sharma", review: "I joined for a 3-month transformation and now it’s been a year. The results speak for themselves. Highly recommended!" },
+    { name: "Aditya Rao", review: "The best gym in town! Equipment is top-notch, trainers are knowledgeable, and the community is so supportive." },
+    { name: "Sneha Patel", review: "The group workouts are my favorite! It’s fun, challenging, and you leave feeling stronger every time." },
+    { name: "Rohit Verma", review: "Clean environment, professional trainers, and affordable pricing. Phoenix Fitness is easily a 10/10 experience." },
+    { name: "Aaradhya Iyer", review: "The personal training program helped me achieve my fitness goals faster than I imagined. Great attention to detail and form!" },
   ];
 
   const nextReview = () => setCurrentIndex((prev) => (prev + 1) % reviews.length);
@@ -38,20 +38,7 @@ function Testimonials() {
         transition: "all 0.5s ease",
         position: "relative",
       }}>
-        <img
-          src={reviews[currentIndex].img}
-          alt={reviews[currentIndex].name}
-          style={{
-            width: "200px",
-            height: "150px",
-            borderRadius: "10%",
-            objectFit: "cover",
-            border: "4px solid #e63946",
-            margin: "-20px auto 20px",
-            display: "block",
-            background: "#111"
-          }}
-        />
+       
         <p style={{ fontStyle: "italic", color: "#ccc", fontSize: "1rem", lineHeight: "1.6" }}>
           “{reviews[currentIndex].review}”
         </p>

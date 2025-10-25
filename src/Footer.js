@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+
 
 export default function Footer() {
   const [showButton, setShowButton] = useState(false);
@@ -110,12 +112,13 @@ background: "linear-gradient(135deg, #0f2027, #2c5364)"
           <a href="#contact" style={linkStyle}>Contact</a>
         </div>
 
-        <div style={iconContainer}>
-          <a href="#" style={linkStyle}><i className="fab fa-facebook"></i></a>
-          <a href="#" style={linkStyle}><i className="fab fa-instagram"></i></a>
-          <a href="#" style={linkStyle}><i className="fab fa-twitter"></i></a>
-          <a href="#" style={linkStyle}><i className="fab fa-youtube"></i></a>
-        </div>
+       <div style={iconContainer}>
+  <a href="#" style={linkStyle}><FaFacebookF /></a>
+  <a href="https://www.instagram.com/_phoenix__fitness?igsh=Y2loMjYxZm9nMmtz" target="_blank" style={linkStyle}><FaInstagram /></a>
+  <a href="#" style={linkStyle}><FaTwitter /></a>
+  <a href="#" style={linkStyle}><FaYoutube /></a>
+</div>
+
 
         <p style={{ marginTop: "40px", fontSize: "0.9rem", opacity: 0.8 }}>
           © {new Date().getFullYear()} Phoenix Fitness. All Rights Reserved As the best Gym in Hyderabad.

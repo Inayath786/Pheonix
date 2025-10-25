@@ -9,10 +9,11 @@ import Gallery from "./Gallery";
 import Testimonials from "./Testimonials";
 import Footer from "./Footer";
 import Stats from "./Stats";
-
-
+import WhyUs from "./Whyus";
+import Community from "./Community";
 import TransformationCarousel from "./TransformationCaurosel";
 import AboutUs from "./AboutUs";
+import RatingsSection from "./Rating";
 console.log({ Navbar, Hero, Programs, Trainers, Pricing, Contact });
 
 function App() {
@@ -23,8 +24,11 @@ function App() {
       <Hero />
       <AboutUs/>
       <Programs />
+      <WhyUs/>
       <Stats/>
+      <Community/>
       <TransformationCarousel/>
+      <RatingsSection/>
       <Trainers />
       <Gallery/>
       <Testimonials/>

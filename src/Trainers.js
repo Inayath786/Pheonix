@@ -20,6 +20,18 @@ const trainers = [
     bio: "Specializes in high-intensity interval training to burn fat fast.",
     image: "/trainer3.jpg",
   },
+  {
+    name: "Mike Thompson",
+    role: "HIIT Trainer",
+    bio: "Specializes in high-intensity interval training to burn fat fast.",
+    image: "/trainer4.jpg",
+  },
+  {
+    name: "Mike Thompson",
+    role: "HIIT Trainer",
+    bio: "Specializes in high-intensity interval training to burn fat fast.",
+    image: "/trainer5.jpg",
+  },
 ];
 
 export default function TrainerCarousel() {
