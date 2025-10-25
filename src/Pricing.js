@@ -36,7 +36,6 @@ export default function PricingCard() {
     },
   ];
 
-  // Section styles
   const sectionStyle = {
     padding: "50px 5%",
     backgroundColor: "#000",
@@ -70,8 +69,16 @@ export default function PricingCard() {
     gap: "15px",
     textAlign: "center",
     width: "300px",
-    maxWidth: "100%",
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
+  };
+
+  const featureListStyle = {
+    textAlign: "left",
+    color: "#ccc",
+    lineHeight: "1.7",
+    fontSize: "0.95rem",
+    width: "100%",
+    maxWidth: "250px",
   };
 
   const btnStyle = {
@@ -85,38 +92,18 @@ export default function PricingCard() {
     cursor: "pointer",
     transition: "all 0.3s ease",
     boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-  };
-
-  const featureListStyle = {
-    textAlign: "left",
-    color: "#ccc",
-    lineHeight: "1.7",
-    fontSize: "0.95rem",
-    width: "100%",
-    maxWidth: "250px",
-  };
-
-  // Responsive adjustments via JS (works for inline styles)
-  const isMobile = window.innerWidth <= 768;
-
-  const mobileAdjustments = {
-    ...(isMobile && {
-      sectionStyle: { ...sectionStyle, padding: "30px 5%" },
-      titleStyle: { ...titleStyle, fontSize: "1.8rem", marginBottom: "25px" },
-      cardStyle: { ...cardStyle, width: "90%", padding: "20px" },
-      btnStyle: { ...btnStyle, padding: "10px 20px", fontSize: "0.9rem" },
-    }),
+    marginTop: "auto", // Ensures button stays aligned at bottom
   };
 
   return (
-    <section id="pricing" style={mobileAdjustments.sectionStyle || sectionStyle}>
-      <h2 style={mobileAdjustments.titleStyle || titleStyle}>Our Membership Plans</h2>
+    <section id="pricing" style={sectionStyle}>
+      <h2 style={titleStyle}>Our Membership Plans</h2>
 
       <div style={cardsContainer}>
         {plans.map((plan, i) => (
           <div
             key={i}
-            style={mobileAdjustments.cardStyle || cardStyle}
+            style={cardStyle}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "scale(1.05)";
               e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.6)";
@@ -136,7 +123,7 @@ export default function PricingCard() {
             </ul>
 
             <button
-              style={mobileAdjustments.btnStyle || btnStyle}
+              style={btnStyle}
               onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
               onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
             >
@@ -145,6 +132,39 @@ export default function PricingCard() {
           </div>
         ))}
       </div>
+
+      {/* ✅ Add proper responsive media queries */}
+      <style>
+        {`
+          @media (max-width: 768px) {
+            #pricing {
+              padding: 30px 4%;
+            }
+
+            #pricing h2 {
+              font-size: 1.8rem !important;
+              margin-bottom: 25px !important;
+            }
+
+            #pricing div {
+              flex-direction: column !important;
+              align-items: center !important;
+            }
+
+            #pricing div > div {
+              width: 90% !important;
+              max-width: 360px !important;
+              margin-bottom: 20px !important;
+            }
+
+            #pricing button {
+              padding: 10px 25px !important;
+              font-size: 0.9rem !important;
+              width: 80% !important;
+            }
+          }
+        `}
+      </style>
     </section>
   );
 }

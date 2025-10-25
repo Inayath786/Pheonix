@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Header/>
+      {/* <Header/> */}
       <Hero />
       <AboutUs/>
       <Programs />

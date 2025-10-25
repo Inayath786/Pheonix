@@ -13,7 +13,7 @@ const WhyUs = () => {
   const containerStyle = {
     textAlign: "center",
     padding: "50px 20px",
-  background: "linear-gradient(135deg, #ff758c, #ff7eb3)",
+ background: "linear-gradient(135deg, #232526, #414345",
     fontFamily: "Arial, sans-serif"
   };
 

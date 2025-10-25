@@ -12,17 +12,20 @@ export default function CommunitySection() {
     flexWrap: "wrap",
     overflow: "hidden",
     borderRadius: "15px",
+    gap: "40px",
   };
 
   const textContainer = {
     flex: "1 1 400px",
     zIndex: 2,
+    textAlign: "left",
   };
 
   const heading = {
     fontSize: "2.4rem",
     fontWeight: "700",
     marginBottom: "20px",
+    lineHeight: "1.3",
   };
 
   const paragraph = {
@@ -43,47 +46,58 @@ export default function CommunitySection() {
     cursor: "pointer",
     transition: "all 0.3s ease",
     boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
+    display: "inline-block",
   };
 
   const floatingImage = {
-    position: "absolute",
-    right: "5%",
-    bottom: "0",
-    width: "400px",
-    opacity: 1,
+    flex: "1 1 400px",
+    position: "relative",
+    textAlign: "center",
+  };
+
+  const imageStyle = {
+    width: "100%",
+    maxWidth: "420px",
     animation: "float 6s ease-in-out infinite",
+    borderRadius: "12px",
   };
 
   return (
     <section id="community" style={sectionStyle}>
+      <div style={floatingImage}>
+        <img
+          src="/gymimage.jpg" // 👉 your image here
+          alt="Phoenix Fitness Community"
+          style={imageStyle}
+        />
+      </div>
+
       <div style={textContainer}>
         <h2 style={heading}>Join the Phoenix Fitness Community</h2>
         <p style={paragraph}>
           Be a part of a powerful fitness community that motivates, supports,
-          and grows together. At Phoenix Fitness,<br/> we believe in teamwork, 
-          consistency, and pushing limits — together. Connect with fitness 
+          and grows together. At Phoenix Fitness, we believe in teamwork,
+          consistency, and pushing limits — together. Connect with fitness
           enthusiasts, share your progress, and stay inspired every day.
         </p>
         <a href="tel:+919876543210">
           <button
             style={buttonStyle}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.transform = "scale(1.08)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.transform = "scale(1)")
-            }
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.08)";
+              e.currentTarget.style.background = "#ff512f";
+              e.currentTarget.style.color = "#fff";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.background = "#fff";
+              e.currentTarget.style.color = "#ff512f";
+            }}
           >
             🔥 Join Our Community
           </button>
         </a>
       </div>
-
-      <img
-        src="/gymimage.jpg" // 👈 place your floating image here
-        alt="Phoenix Fitness Community"
-        style={floatingImage}
-      />
 
       <style>
         {`
@@ -99,17 +113,25 @@ export default function CommunitySection() {
               text-align: center;
               padding: 60px 6%;
             }
+            section#community div:first-child {
+              order: 1 !important;
+            }
+            section#community div:last-child {
+              order: 2 !important;
+            }
+            section#community img {
+              width: 260px !important;
+              margin-bottom: 25px;
+            }
             section#community h2 {
-              font-size: 1.8rem !important;
+              font-size: 1.9rem !important;
             }
             section#community p {
               font-size: 0.95rem !important;
             }
-            section#community img {
-              position: static !important;
-              width: 250px !important;
-              opacity: 0.25 !important;
-              margin-top: 25px;
+            section#community button {
+              width: auto;
+              padding: 12px 28px !important;
             }
           }
         `}

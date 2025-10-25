@@ -62,9 +62,9 @@ function RatingsSection() {
       </div>
 
       {/* Right Star with Rating */}
-      <div style={starContainer}>
+      {/* <div style={starContainer}>
         <span style={ratingNumber}>4.9★</span>
-      </div>
+      </div> */}
     </section>
   );
 }

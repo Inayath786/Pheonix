@@ -6,7 +6,7 @@ export default function Hero({ openModal }) {
 
   const styles = {
     hero: {
-      height: "100vh",
+      height: "80vh",
       width: "100%",
       margin: 0, // fix side gap
       padding: isMobile ? "0 15px" : "0 40px", // reduce padding slightly to avoid overflow
