@@ -3,33 +3,28 @@ import useResponsive from "./useResponsive";
 
 const trainers = [
   {
-    name: "Alex Johnson",
-    role: "Strength Coach",
+    name: "Subbu",
     bio: "Expert in weightlifting and muscle building with 10+ years of experience.",
     image: "/trainer1.jpg",
   },
   {
-    name: "Sarah Lee",
-    role: "Yoga Instructor",
+    name: "Bharath",
     bio: "Passionate about flexibility and mindfulness, guiding clients to a balanced life.",
     image: "/trainer2.jpg",
   },
   {
-    name: "Mike Thompson",
-    role: "HIIT Trainer",
+    name: "Raju",
     bio: "Specializes in high-intensity interval training to burn fat fast.",
     image: "/trainer3.jpg",
   },
   {
     name: "Mike Thompson",
-    role: "HIIT Trainer",
-    bio: "Specializes in high-intensity interval training to burn fat fast.",
     image: "/trainer4.jpg",
   },
   {
-    name: "Mike Thompson",
-    role: "HIIT Trainer",
-    bio: "Specializes in high-intensity interval training to burn fat fast.",
+    name: "Dileep Kumar",
+    role: "Owner",
+    bio: "Manages all gym information and activities.",
     image: "/trainer5.jpg",
   },
 ];

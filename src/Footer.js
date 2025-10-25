@@ -1,31 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
-
+import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube, FaWhatsapp } from "react-icons/fa";
 
 export default function Footer() {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
-      }
+      setShowButton(window.scrollY > 300);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const footerStyle = {
-   background: "linear-gradient(135deg, #1a1a1a, #ff512f)",
+    background: "linear-gradient(135deg, #1a1a1a, #ff512f)",
     color: "#fff",
     textAlign: "center",
     padding: "60px 20px",
@@ -39,8 +31,7 @@ export default function Footer() {
     left: 0,
     width: "200%",
     height: "120px",
-background: "linear-gradient(135deg, #0f2027, #2c5364)"
-,
+    background: "linear-gradient(135deg, #0f2027, #2c5364)",
     animation: "wave 8s linear infinite",
     opacity: 0.3,
   };
@@ -68,6 +59,7 @@ background: "linear-gradient(135deg, #0f2027, #2c5364)"
     marginBottom: "30px",
   };
 
+  // Scroll-to-top button
   const scrollButtonStyle = {
     position: "fixed",
     bottom: "40px",
@@ -86,6 +78,27 @@ background: "linear-gradient(135deg, #0f2027, #2c5364)"
     zIndex: 1000,
   };
 
+  // WhatsApp floating button
+  const whatsappButtonStyle = {
+    position: "fixed",
+    bottom: "40px",
+    left: "30px",
+    backgroundColor: "#25D366",
+    color: "#fff",
+    border: "none",
+    borderRadius: "50%",
+    width: "55px",
+    height: "55px",
+    cursor: "pointer",
+    fontSize: "1.7rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+    zIndex: 1001,
+    transition: "all 0.3s ease",
+  };
+
   return (
     <>
       <footer style={footerStyle}>
@@ -98,7 +111,7 @@ background: "linear-gradient(135deg, #0f2027, #2c5364)"
             animation: "fadeInUp 1.5s ease-in-out",
           }}
         >
-          Join the Phoenix Fitness Family 🔥and transform your life
+          Join the Phoenix Fitness Family 🔥 and transform your life
         </h2>
         <p style={{ fontSize: "1rem", marginBottom: "30px" }}>
           Empowering lives through fitness, dedication, and strength.
@@ -112,16 +125,22 @@ background: "linear-gradient(135deg, #0f2027, #2c5364)"
           <a href="#contact" style={linkStyle}>Contact</a>
         </div>
 
-       <div style={iconContainer}>
-  <a href="#" style={linkStyle}><FaFacebookF /></a>
-  <a href="https://www.instagram.com/_phoenix__fitness?igsh=Y2loMjYxZm9nMmtz" target="_blank" style={linkStyle}><FaInstagram /></a>
-  <a href="#" style={linkStyle}><FaTwitter /></a>
-  <a href="#" style={linkStyle}><FaYoutube /></a>
-</div>
-
+        <div style={iconContainer}>
+          <a href="#" style={linkStyle}><FaFacebookF /></a>
+          <a
+            href="https://www.instagram.com/_phoenix__fitness?igsh=Y2loMjYxZm9nMmtz"
+            target="_blank"
+            rel="noreferrer"
+            style={linkStyle}
+          >
+            <FaInstagram />
+          </a>
+          <a href="#" style={linkStyle}><FaTwitter /></a>
+          <a href="#" style={linkStyle}><FaYoutube /></a>
+        </div>
 
         <p style={{ marginTop: "40px", fontSize: "0.9rem", opacity: 0.8 }}>
-          © {new Date().getFullYear()} Phoenix Fitness. All Rights Reserved As the best Gym in Hyderabad.
+          © {new Date().getFullYear()} Phoenix Fitness. All Rights Reserved as the best Gym in Hyderabad.
         </p>
 
         <style>
@@ -145,7 +164,6 @@ background: "linear-gradient(135deg, #0f2027, #2c5364)"
               color: #000;
             }
 
-            /* Responsive Design */
             @media (max-width: 768px) {
               footer h2 {
                 font-size: 1.6rem !important;
@@ -165,20 +183,26 @@ background: "linear-gradient(135deg, #0f2027, #2c5364)"
               footer p {
                 font-size: 0.85rem !important;
               }
-              button {
-                bottom: 25px !important;
-                right: 20px !important;
-                width: 45px !important;
-                height: 45px !important;
-              }
             }
           `}
         </style>
       </footer>
 
-      {/* <button style={scrollButtonStyle} onClick={scrollToTop}>
-        <i className="fas fa-arrow-up"></i>
-      </button> */}
+      {/* Floating WhatsApp Button */}
+      <a
+        href="https://wa.me/918309963048"
+        target="_blank"
+        rel="noreferrer"
+        style={whatsappButtonStyle}
+        className="whatsapp-btn"
+      >
+        <FaWhatsapp />
+      </a>
+
+      {/* Scroll-to-top Button */}
+      <button style={scrollButtonStyle} onClick={scrollToTop}>
+        ↑
+      </button>
     </>
   );
 }
