@@ -11,8 +11,9 @@ export default function Hero({ openModal }) {
       margin: 0, // fix side gap
       padding: isMobile ? "0 15px" : "0 40px", // reduce padding slightly to avoid overflow
       boxSizing: "border-box", // include padding inside width
+      // background: "#111",
       backgroundImage:
-        "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/pheonix.jpg')",
+        "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/hero.jpeg')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       display: "flex",
