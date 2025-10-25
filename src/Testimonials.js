@@ -99,7 +99,7 @@ function Testimonials() {
         ))}
       </div>
 
-      {/* Mobile Responsive */}
+      {/* Mobile Responsive
       <style>
         {`
           @media (max-width: 600px) {
@@ -112,7 +112,7 @@ function Testimonials() {
             }
           }
         `}
-      </style>
+      </style> */}
     </section>
   );
 }

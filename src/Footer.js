@@ -189,7 +189,7 @@ export default function Footer() {
       </footer>
 
       {/* Floating WhatsApp Button */}
-      <a
+      {/* <a
         href="https://wa.me/918309963048"
         target="_blank"
         rel="noreferrer"
@@ -197,12 +197,12 @@ export default function Footer() {
         className="whatsapp-btn"
       >
         <FaWhatsapp />
-      </a>
+      </a> */}
 
       {/* Scroll-to-top Button */}
-      <button style={scrollButtonStyle} onClick={scrollToTop}>
+      {/* <button style={scrollButtonStyle} onClick={scrollToTop}>
         ↑
-      </button>
+      </button> */}
     </>
   );
 }
