@@ -85,7 +85,7 @@ export default function Managers() {
   };
 
   const buttonContainer = {
-    display: "none",
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     marginTop: "25px",
@@ -107,16 +107,10 @@ export default function Managers() {
     <section id="managers" style={sectionStyle}>
       <h2 style={headingStyle}>Our Management Team</h2>
 
-      {/* Desktop View */}
+      {/* Desktop View (Hidden in mobile) */}
       <div className="manager-grid" style={gridStyle}>
         {managers.map((manager, i) => (
-          <div
-            key={i}
-            style={{
-              ...cardStyle,
-              transform: "translateY(0)",
-            }}
-          >
+          <div key={i} style={cardStyle}>
             <img src={manager.image} alt={manager.name} style={imageStyle} />
             <h3 style={nameStyle}>{manager.name}</h3>
             <p style={roleStyle}>{manager.role}</p>
@@ -125,7 +119,7 @@ export default function Managers() {
         ))}
       </div>
 
-      {/* Mobile Carousel */}
+      {/* Mobile Carousel (Hidden in desktop) */}
       <div className="manager-carousel">
         <div style={cardStyle}>
           <img
@@ -160,19 +154,29 @@ export default function Managers() {
             transform: translateY(-10px);
           }
 
-          /* Responsive - for mobile view */
+          /* Responsive - show only carousel in mobile */
           @media (max-width: 768px) {
             .manager-grid {
-              display: none;
+              display: none !important;
             }
+
             .manager-carousel {
-              display: flex;
+              display: flex !important;
               flex-direction: column;
               align-items: center;
+              justify-content: center;
+              text-align: center;
             }
+
             .buttons {
-              display: flex !important;
+              margin-top: 20px;
             }
+
+            .buttons button {
+              padding: 10px 20px;
+              font-size: 1rem;
+            }
+
             #managers h2 {
               font-size: 1.8rem !important;
               margin-bottom: 30px !important;
