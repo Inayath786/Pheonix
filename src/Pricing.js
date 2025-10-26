@@ -3,37 +3,43 @@ import React from "react";
 export default function PricingCard() {
   const plans = [
     {
-      name: "Basic Plan",
-      price: 999,
-      features: [
-        "Access to all gym equipment",
-        "Locker facility",
-        "1 Trainer session/week",
-        "Flexible timings",
-      ],
+      name: "Monthly",
+      price: 1800,
+     
     },
     {
-      name: "Premium Plan",
-      price: 1499,
-      features: [
-        "All Basic Plan features",
-        "Unlimited trainer support",
-        "Personalized diet plan",
-        "Body composition analysis",
-        "Access to group classes",
-      ],
+      name: "Quaterly",
+      price: 4500,
+      
     },
     {
-      name: "Elite Plan",
-      price: 1999,
-      features: [
-        "All Premium Plan features",
-        "Dedicated personal trainer",
-        "Monthly progress tracking",
-        "Nutrition & supplement guidance",
-        "VIP access to all facilities",
-      ],
+      name: "HalfYearly",
+      price: 6999,
     },
+     {
+      name: "Yearly",
+      price: 11999,
+     
+    },
+    {
+      name: "Personel Training Monthly",
+      price: 6000,
+      
+    },
+    {
+      name: "Personel Training Quaterly",
+      price: 7000,
+    },
+     {
+      name: "Personel Training Half Yearly",
+      price: 25000,
+      
+    },
+    {
+      name: "Personel Training Yearly",
+      price: 45000,
+    }
+    
   ];
 
   const sectionStyle = {
@@ -117,7 +123,7 @@ export default function PricingCard() {
             <p style={{ fontSize: "1.2rem", color: "#fff" }}>₹{plan.price} / month</p>
 
             <ul style={featureListStyle}>
-              {plan.features.map((feature, idx) => (
+              {plan.features?.map((feature, idx) => (
                 <li key={idx}>✅ {feature}</li>
               ))}
             </ul>

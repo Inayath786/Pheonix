@@ -13,6 +13,19 @@ function Navbar() {
     zIndex: 1000,
   };
 
+  const brandStyle = {
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+  };
+
+  const logoStyle = {
+    width: "40px",
+    height: "40px",
+    borderRadius: "50%",
+    objectFit: "cover",
+  };
+
   const navLinks = {
     display: "flex",
     gap: "25px",
@@ -42,9 +55,13 @@ function Navbar() {
         }
         `}
       </style>
+
       <nav style={navStyle}>
-        <h2>Phoenix Fitness</h2>
-      
+        {/* ✅ Logo + Text together */}
+        <div style={brandStyle}>
+          <img src="/pheoniclogo.jpg" alt="Phoenix Fitness Logo" style={logoStyle} />
+          <h2>Phoenix Fitness</h2>
+        </div>
       </nav>
     </>
   );
