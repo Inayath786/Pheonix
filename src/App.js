@@ -14,6 +14,7 @@ import Community from "./Community";
 import TransformationCarousel from "./TransformationCaurosel";
 import AboutUs from "./AboutUs";
 import RatingsSection from "./Rating";
+import Managers from "./Managers";
 console.log({ Navbar, Hero, Programs, Trainers, Pricing, Contact });
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <AboutUs/>
       <Programs />
       <WhyUs/>
+      <Managers/>
       <Stats/>
       <Community/>
       <TransformationCarousel/>

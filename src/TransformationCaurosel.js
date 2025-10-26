@@ -6,9 +6,11 @@ export default function TransformationCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const members = [
-    { before: "https://images.unsplash.com/photo-1579758629930-0360a3b17fae", after: "https://images.unsplash.com/photo-1598970434795-0c54fe7c0642", name: "John" },
-    { before: "https://images.unsplash.com/photo-1594737625785-30c64d1e2d63", after: "https://images.unsplash.com/photo-1611965938960-d1fbe0287a49", name: "Sarah" },
-    { before: "https://images.unsplash.com/photo-1599058917213-1964085e16b6", after: "https://images.unsplash.com/photo-1607746882042-944635dfe10e", name: "Mike" },
+    { before: "/transa1.jpg", after: "/transa2.jpg", name: "Hema" },
+    { before: "/transb1.jpg", after: "transb2.jpg", name: "Sudheer" },
+    { before: "/transc1.jpg", after: "/transc2.jpg", name: "Mahesh" },
+     { before: "/transd1.jpg", after: "/transd2.jpg", name: "Prakash" },
+       { before: "/transe1.jpg", after: "/transe2.jpg", name: "Abhi" },
   ];
 
   const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % members.length);

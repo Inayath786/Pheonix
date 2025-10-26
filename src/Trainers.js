@@ -3,11 +3,6 @@ import useResponsive from "./useResponsive";
 
 const trainers = [
   {
-    name: "Subbu",
-    bio: "Expert in weightlifting and muscle building with 10+ years of experience.",
-    image: "/trainer1.jpg",
-  },
-  {
     name: "Bharath",
     bio: "Passionate about flexibility and mindfulness, guiding clients to a balanced life.",
     image: "/trainer2.jpg",
@@ -20,12 +15,6 @@ const trainers = [
   {
     name: "Mike Thompson",
     image: "/trainer4.jpg",
-  },
-  {
-    name: "Dileep Kumar",
-    role: "Owner",
-    bio: "Manages all gym information and activities.",
-    image: "/trainer5.jpg",
   },
 ];
 
