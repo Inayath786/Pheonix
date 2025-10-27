@@ -4,15 +4,15 @@ export default function Managers() {
   const managers = [
     {
       name: "Subbu",
-      role: "Head Trainer",
+      role: "Fatloss Trainer",
       image: "/trainer1.jpg",
-      desc: "Certified fitness coach with 10+ years of experience in strength training and transformations.",
+      desc: "Certified fitness coach with 15+ years of experience in Fatloss training and transformations.",
     },
     {
       name: "Dileep Kumar",
-      role: "Nutrition Specialist",
+      role: "Strength Trainer",
       image: "/trainer5.jpg",
-      desc: "Expert in personalized diet planning and holistic wellness coaching for sustainable results.",
+      desc: "Expert in personalised strength based training with about 6+years of experience.",
     },
     {
       name: "Prudhvi",

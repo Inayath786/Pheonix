@@ -13,7 +13,8 @@ const trainers = [
     image: "/trainer3.jpg",
   },
   {
-    name: "Mike Thompson",
+    name: "Dileep",
+    bio:"Specialize in training transformations from fat to fit",
     image: "/trainer4.jpg",
   },
 ];
@@ -30,7 +31,7 @@ export default function TrainerCarousel() {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    padding: isMobile ? "60px 5%" : "100px 10%",
+    padding: isMobile ? "60px 10%" : "100px 10%",
     background: "#111",
     color: "#fff",
     textAlign: "center",
@@ -112,3 +113,6 @@ export default function TrainerCarousel() {
     </section>
   );
 }
+
+
+

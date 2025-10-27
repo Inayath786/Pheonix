@@ -120,7 +120,7 @@ export default function PricingCard() {
             }}
           >
             <h3 style={{ fontSize: "1.5rem", color: "#ff6347" }}>{plan.name}</h3>
-            <p style={{ fontSize: "1.2rem", color: "#fff" }}>₹{plan.price} / month</p>
+            <p style={{ fontSize: "1.2rem", color: "#fff" }}>₹{plan.price}</p>
 
             <ul style={featureListStyle}>
               {plan.features?.map((feature, idx) => (

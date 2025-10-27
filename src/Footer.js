@@ -126,7 +126,7 @@ export default function Footer() {
         </div>
 
         <div style={iconContainer}>
-          <a href="#" style={linkStyle}><FaFacebookF /></a>
+          <a href="https://www.facebook.com/profile.php?id=61583011884120" style={linkStyle}><FaFacebookF /></a>
           <a
             href="https://www.instagram.com/_phoenix__fitness?igsh=Y2loMjYxZm9nMmtz"
             target="_blank"
@@ -135,7 +135,7 @@ export default function Footer() {
           >
             <FaInstagram />
           </a>
-          <a href="#" style={linkStyle}><FaTwitter /></a>
+         
           <a href="#" style={linkStyle}><FaYoutube /></a>
         </div>
 
