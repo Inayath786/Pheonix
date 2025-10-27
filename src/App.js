@@ -15,6 +15,7 @@ import TransformationCarousel from "./TransformationCaurosel";
 import AboutUs from "./AboutUs";
 import RatingsSection from "./Rating";
 import Managers from "./Managers";
+import Location from "./Location";
 console.log({ Navbar, Hero, Programs, Trainers, Pricing, Contact });
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
       <Gallery/>
       <Testimonials/>
       <Pricing />
+      <Location/>
       <Contact />
       <Footer/>
     </>
